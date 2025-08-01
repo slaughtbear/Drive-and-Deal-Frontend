@@ -1,11 +1,19 @@
+import { useEffect, useState } from "react";
+import RepairList from "../components/repairs/RepairList";
+import { fetchRepairs } from "../api/repairs";
+
 function Repairs() {
-  return (
-    <>
-      <div>
-        <h1 className="text-blue-600 font-bold text-3xl">Reparaciones</h1>
-      </div>
-    </>
-  );
+  const [repairs, setRepairs] = useState([]);
+
+  useEffect(() => {
+    fetchRepairs()
+      .then((res) => {
+        setRepairs(res.data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
+  return <RepairList repairs={repairs} />;
 }
 
 export default Repairs;

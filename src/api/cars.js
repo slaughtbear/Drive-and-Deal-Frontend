@@ -1,13 +1,13 @@
 import axios from "axios";
 
 const apiUrl = import.meta.env.VITE_API_URL; // url del backend
-const endpoint = `${apiUrl}/api/cars` // ruta de la api de autos
+const endpoint = `${apiUrl}/api/cars`; // ruta de la api de autos
 
 // Obtiene una lista con todos los autos
 export const fetchCars = async () => await axios.get(endpoint);
 
 // Obtiene un auto por id
-export const fetchCar = async (id) => await axios.get(`/${endpoint}/${id}`);
+export const fetchCar = async (id) => await axios.get(`${endpoint}/${id}`);
 
 // Permite registrar un nuevo auto
 export const createCar = async (newCar) =>

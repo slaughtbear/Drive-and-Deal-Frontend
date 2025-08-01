@@ -1,11 +1,19 @@
+import { useEffect, useState } from "react";
+import RentalList from "../components/rentals/RentalList";
+import { fetchRentals } from "../api/rentals";
+
 function Rentals() {
-  return (
-    <>
-      <div>
-        <h1 className="text-blue-600 font-bold text-3xl">Rentas</h1>
-      </div>
-    </>
-  );
+  const [rentals, setRentals] = useState([]);
+
+  useEffect(() => {
+    fetchRentals()
+      .then((res) => {
+        setRentals(res.data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
+  return <RentalList rentals={rentals} />;
 }
 
 export default Rentals;
