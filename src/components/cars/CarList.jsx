@@ -1,4 +1,5 @@
 import CarCard from "./CarCard";
+import React from "react";
 
 /* Componente que se utiliza para renderizar un array que contiene
    los autos registrados en la base de datos en un layout de 4 columnas. 
