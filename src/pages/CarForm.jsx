@@ -32,7 +32,8 @@ function CarForm() {
         const response = await updateCar(params.id, carData);
         console.log(response);
       }
-      navigate("/");
+      e.target.reset();
+      navigate("/dashboard/cars");
     } catch (error) {
       console.log(error);
     }
@@ -46,9 +47,9 @@ function CarForm() {
           setBrand(data.brand || "");
           setModel(data.model || "");
           setYear(data.year?.toString() || "");
-          setLicensePlate(data.licensePlate || "");
-          setAvaible(data.avaible ? "true" : "false");
-          setCarState(data.carState || "");
+          setLicensePlate(data.license_plate || "");
+          setAvaible(data.avaible  ? "true" : "false");
+          setCarState(data.state || "");
         })
         .catch((err) => console.log(err));
     }
