@@ -3,10 +3,13 @@ import Login from "./pages/Login";
 import Cars from './pages/Cars';
 import Customers from './pages/Customers';
 import Rentals from './pages/Rentals'
+import Repairs from './pages/Repairs'
 
 import CarsForm from "./pages/CarForm";
 import CustomersForm from "./pages/CustomersForm";
 import RentalsForm from "./pages/RentalsForm";
+import RepairsForm from "./pages/RepairsForm"
+
 import Sidebar from "./components/sidebar/Sidebar";
 
 function App() {
@@ -31,6 +34,11 @@ function App() {
             <Route path="/dashboard/rentals" element={<Rentals />} />
             <Route path="/dashboard/rentals/:id" element={<RentalsForm />} />
             <Route path="/dashboard/rentals/add" element={<RentalsForm />}></Route>
+
+
+            <Route path="/dashboard/repairs" element={<Repairs />} />
+            <Route path="/dashboard/repairs/:id" element={<RepairsForm />} />
+            <Route path="/dashboard/repairs/add" element={<RepairsForm />}></Route>
           </Routes>
         </div>
     </BrowserRouter>
