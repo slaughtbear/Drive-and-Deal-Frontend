@@ -7,7 +7,7 @@ const endpoint = `${apiUrl}/api/customers` // ruta de la api de clientes
 export const fetchCustomers = async () => await axios.get(endpoint);
 
 // Obtiene un cliente por id
-export const fetchCustomer = async (id) => await axios.get(`/${endpoint}/${id}`);
+export const fetchCustomer = async (id) => await axios.get(`${endpoint}/${id}`);
 
 // Permite registrar un nuevo cliente
 export const createCustomer = async (newCustomer) =>

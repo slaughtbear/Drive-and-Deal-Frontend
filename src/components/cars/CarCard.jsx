@@ -1,51 +1,68 @@
 import { useNavigate } from "react-router-dom";
 import { PiCarProfileLight } from "react-icons/pi";
+import { MdOutlineDirectionsCar, MdOutlineCarRental } from "react-icons/md";
+import { FaGasPump } from "react-icons/fa";
 
 function CarCard({ car }) {
   const navigate = useNavigate();
-  return (
-    <article className="rounded-xl border-2 mt-3 border-neutral-800 bg-neutral-950">
-      <div
-        key={car.id}
-        className="flex items-start gap-4 p-4 sm:p-6 lg:p-8"
-        onClick={() => {
-          navigate(`${car.id}`);
-        }}
-      >
-        <button className="block shrink-0">
-          <PiCarProfileLight className="size-14 rounded-lg object-cover bg-neutral-800 p-2 text-green-500" />
-        </button>
+  
+  // Determinar el color según disponibilidad
+  const getStatusColor = () => car.avaible ? "bg-green-600" : "bg-red-600";
+  const getStatusText = () => car.avaible ? "Disponible" : "No disponible";
+  
+  // Formatear año si existe
+  const formatYear = (year) => year ? ` · ${year}` : "";
 
-        <div>
-          <h3 className="font-medium text-white sm:text-lg">
-            <a href="#" className="hover:underline">
-              {" "}
-              {`${car.brand} ${car.model}`}{" "}
-            </a>
-          </h3>
+  return (
+    <article 
+      className="rounded-xl border border-gray-700 bg-neutral-900 overflow-hidden hover:shadow-lg hover:shadow-green-500/10 transition-all duration-300 cursor-pointer"
+      onClick={() => navigate(`/dashboard/cars/${car.id}`)}
+    >
+      <div className="p-5">
+        {/* Encabezado con ID y estado */}
+        <div className="flex justify-between items-start mb-4">
+          <span className="text-xs font-mono text-gray-400">ID: {car.id.slice(0, 8)}...</span>
+          <span className={`${getStatusColor()} text-white text-xs px-2 py-1 rounded-full`}>
+            {getStatusText()}
+          </span>
+        </div>
+
+        {/* Información principal */}
+        <div className="flex items-center space-x-3 mb-4">
+          <div className="bg-green-600/20 p-3 rounded-lg">
+            <PiCarProfileLight className="text-green-400 text-2xl" />
+          </div>
+          <div>
+            <h3 className="text-lg font-bold text-white">
+              {`${car.brand} ${car.model}`}
+              {formatYear(car.year)}
+            </h3>
+            <p className="text-sm text-gray-400">{car.license_plate}</p>
+          </div>
+        </div>
+
+        {/* Detalles adicionales */}
+        <div className="grid grid-cols-2 gap-4 border-t border-gray-800 pt-4">
+          <div className="flex items-center space-x-2">
+            <MdOutlineDirectionsCar className="text-green-400 text-xl" />
+            <div>
+              <p className="text-xs text-gray-400">Modelo</p>
+              <p className="text-white font-medium">{car.model}</p>
+            </div>
+          </div>
+
+          <div className="flex items-center space-x-2">
+            <FaGasPump className="text-green-400 text-xl" />
+            <div>
+              <p className="text-xs text-gray-400">Estado</p>
+              <p className="text-white font-medium">{car.state || "Buen estado"}</p>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div className="flex justify-end">
-        <strong className="-me-[2px] -mb-[2px] inline-flex items-center gap-1 rounded-ss-xl rounded-ee-xl bg-green-600 px-3 py-1.5 text-white">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="size-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth="2"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
-            />
-          </svg>
-
-          <span className="text-[10px] font-medium sm:text-xs">Disponible</span>
-        </strong>
-      </div>
+      {/* Efecto hover */}
+      <div className="h-1 bg-gradient-to-r from-green-500 to-green-600 opacity-0 hover:opacity-100 transition-opacity"></div>
     </article>
   );
 }

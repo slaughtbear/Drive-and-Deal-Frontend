@@ -7,7 +7,7 @@ const endpoint = `${apiUrl}/api/rentals` // ruta de la api de rentas
 export const fetchRentals = async () => await axios.get(endpoint);
 
 // Obtiene una renta por id
-export const fetchRental = async (id) => await axios.get(`/${endpoint}/${id}`);
+export const fetchRental = async (id) => await axios.get(`${endpoint}/${id}`);
 
 // Permite registrar una nueva renta
 export const createRental = async (newRental) =>

@@ -7,7 +7,7 @@ const endpoint = `${apiUrl}/api/repairs` // ruta de la api de reparaciones
 export const fetchRepairs = async () => await axios.get(endpoint);
 
 // Obtiene una reparación por id
-export const fetchRepair = async (id) => await axios.get(`/${endpoint}/${id}`);
+export const fetchRepair = async (id) => await axios.get(`${endpoint}/${id}`);
 
 // Permite registrar una nueva reparación
 export const createRepair = async (newRepair) =>
