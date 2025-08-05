@@ -28,18 +28,9 @@ function App() {
             <Route path="/dashboard/customers/add" element={<CustomersForm />}></Route>
 
 
-            <Route path="/dashboard/rentals" element={<Rentals />}></Route>
-            <Route path="/dashboard/rentals/:id" element={<RentalsForm />}></Route>
+            <Route path="/dashboard/rentals" element={<Rentals />} />
+            <Route path="/dashboard/rentals/:id" element={<RentalsForm />} />
             <Route path="/dashboard/rentals/add" element={<RentalsForm />}></Route>
-
-            {/* Reparaciones //agregar enrutamiento // Retails*/}
-
-
-{/*             <Route path="/dashboard/Retails" element={<RetailsForm />}></Route>
-            <Route path="/dashboard/Retails/:id" element={<RetailsForm />}></Route>
-            <Route path="/dashboard/Retails/add" element={<RetailsForm />}></Route> */}
-
-
           </Routes>
         </div>
     </BrowserRouter>
