@@ -6,8 +6,7 @@ import Login from '../src/pages/Login.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App /> {/* Cambiar para acceder primero al login */}
-    {/* <Login /> */}  
+      <Login />  
   </StrictMode>
 )
 

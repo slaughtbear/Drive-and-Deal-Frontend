@@ -37,7 +37,7 @@ function App() {
 
 {/*             <Route path="/dashboard/Retails" element={<RetailsForm />}></Route>
             <Route path="/dashboard/Retails/:id" element={<RetailsForm />}></Route>
-            <Route path="/dashboard/Retails/add" element={<RetailsForm />}></Route> */}
+            <Route path="/dashboard/Retails/add" element={<RetailsForm />}></Route>  */}
 
 
           </Routes>
