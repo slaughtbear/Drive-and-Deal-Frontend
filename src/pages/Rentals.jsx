@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import RentalList from "../components/rentals/RentalList";
 import { useNavigate } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 function Rentals() {
   const [rentals, setRentals] = useState([]);
@@ -42,7 +43,19 @@ function Rentals() {
     fetchData();
   }, [navigate, apiUrl]);
 
-  return <RentalList rentals={rentals} />;
+  return (
+    <div>
+      <div className="mb-8">
+        <Link
+          to="/dashboard/rentals/add"
+          className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105"
+        >
+          Register renta
+        </Link>
+      </div>
+      <RentalList rentals={rentals} />
+    </div>
+  )
 }
 
 export default Rentals;

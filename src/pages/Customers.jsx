@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import CustomerList from "../components/customers/CustomerList";
 import { useNavigate } from 'react-router-dom';
+import { Link } from "react-router-dom";
+
 
 function Customers() {
   const [customers, setCustomers] = useState([]);
@@ -42,7 +44,19 @@ function Customers() {
     fetchData();
   }, [navigate, apiUrl]);
 
-  return <CustomerList customers={customers} />;
+  return (
+    <div>
+      <div className="mb-8">
+        <Link
+          to="/dashboard/customers/add"
+          className="inline-block bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105"
+        >
+          Registrar cliente
+        </Link>
+      </div>
+      <CustomerList customers={customers} />
+    </div>
+  )
 }
 
 export default Customers;

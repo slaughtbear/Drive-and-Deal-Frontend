@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import RepairList from "../components/repairs/RepairList";
 import { useNavigate } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 function Repairs() {
   const [repairs, setRepairs] = useState([]);
@@ -42,7 +43,19 @@ function Repairs() {
     fetchData();
   }, [navigate, apiUrl]);
 
-  return <RepairList repairs={repairs} />;
+  return (
+    <div>
+      <div className="mb-8">
+        <Link
+          to="/dashboard/repairs/add"
+          className="inline-block bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105"
+        >
+          Registrar reparación
+        </Link>
+      </div>
+      <RepairList repairs={repairs} />
+    </div>
+  )
 }
 
 export default Repairs;
