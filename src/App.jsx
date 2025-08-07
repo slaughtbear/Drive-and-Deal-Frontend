@@ -18,7 +18,7 @@ function App() {
         <div className="flex container m-auto px-10">
           <Sidebar />
           <Routes>
-            <Route path="/dashboard" element={<Login />}></Route>
+            <Route path="" element={<Login />}></Route>
 
 
             <Route path="/dashboard/cars" element={<Cars />}></Route>
